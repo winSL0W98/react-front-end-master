@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+.Form {
+  display: flex;
+  flex-direction: column;
+  background-color: #E5E5E5;
+  border-radius: 15px;
+  width: 410px;
+  height: 340px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+.Form-header {
+  flex: 80px 1 1;
+  background-color: #00AAFF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+.Form-group {
+  flex: 340px 1 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Form-group-field {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+}
+.Form-group-input {
+  width: 275px;
+  height: 38px;
+  padding-left: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: 0;
+}
+.Form-group-input_error {
+  border-color: #f78874;
+}
+.Form-group-input:focus {
+  border-color: #00AAFF;
+}
+.Form-group-label {
+  font-weight: 300;
+  padding-bottom: 5px;
+}
+.Form-group-error {
+  font-weight: 300;
+  font-size: 14px;
+  padding-top: 5px;
+  color: #ED4F32;
+}
+.Form-group-button {
+  background-color: #00AAFF;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 45px;
+  width: 120px;
+  height: 40px;
+  border: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../static/background.png");
+  background-size: cover;
+  max-height: 920px;
+  max-width: 1920px;
+  min-height: 100vh;
+}
+
+/*# sourceMappingURL=style.css.map

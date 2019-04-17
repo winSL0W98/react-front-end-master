@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+$primary-color : #00AAFF;
+$second-color: #E5E5E5;
+$color-danger: #ED4F32;
+$color-danger-lighter: #f78874;
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    background-color: $second-color;
+    border-radius: 15px;
+    width: 410px;
+    height: 340px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+
+    &-header {
+        flex: 80px 1 1;
+        background-color: $primary-color;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+    }
+
+    &-group {
+        flex: 340px 1 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        &-field {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 25px;
+        }
+
+        &-input {
+            width: 275px;
+            height: 38px;
+            padding-left: 15px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            outline: 0;
+
+            &_error {
+                border-color: $color-danger-lighter;
+            }
+        }
+
+        &-input:focus {
+            border-color: $primary-color;
+        }
+
+        &-label {
+            font-weight: 300;
+            padding-bottom: 5px;
+        }
+
+        &-error {
+            font-weight: 300;
+            font-size: 14px;
+            padding-top: 5px;
+            color: $color-danger;
+        }
+
+        &-button {
+            background-color: $primary-color;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 45px;
+            width: 120px;
+            height: 40px;
+            border: 0;
+            padding: 0;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../static/background.png');
+    background-size: cover;
+    max-height: 920px;
+    max-width: 1920px;
+    min-height: 100vh;
+}

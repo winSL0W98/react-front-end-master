@@ -1,0 +1,117 @@
+.task {
+    width: 312px;
+    // height: 312px;
+    font-family: Roboto;
+    font-style: normal;
+    border: #E6EAEE 1px solid;
+    border-radius: 4px 4px 0px 0px;
+    overflow: hidden;
+}
+
+.task--header {
+    display: flex;
+    flex-flow: column nowrap;
+    background: #F5F5F5;
+    border-radius: 4px 4px 0px 0px;
+    font-weight: bold;
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 11px 18px 8px 18px;
+    border-bottom: #E6EAEE 1px solid;
+
+    &__type {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 7px;
+        align-items: center;
+        font-size: 10px;
+        color: #FF7700;
+    
+        &--text {
+            display: flex;
+            align-items: center;
+
+        & img {
+                margin-right: 7px;
+            }
+        }
+
+        &--buttons a {
+            margin-left: 11px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 14px;
+
+        &--status {
+            font-size: 10px;
+            color: #EB5757;
+        }
+    }
+}
+
+.task--body {
+    padding: 9px 18px 9px 18px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: #E6EAEE 1px solid;
+
+    &__author, &__executor {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__author {
+        margin-bottom: 8px;
+
+        &--desc {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+        }
+
+        &--deadlines {
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+            text-align: right;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            & .red {
+                color: #EB5757;
+            }
+
+            & .green {
+                color: #219653;
+            }
+        }
+    }
+
+    &__executor {
+        align-items: flex-end;
+
+        &--hours {
+            font-size: 16px;
+            text-align: right;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.task--footer {
+    padding: 9px 18px;
+    font-size: 12px;
+
+    &__desc {
+        height: 125px;
+        overflow: auto;
+    }
+}
