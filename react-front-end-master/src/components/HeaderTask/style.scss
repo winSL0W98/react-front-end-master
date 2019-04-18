@@ -1,0 +1,133 @@
+.task-header {
+  display: flex;
+  background: #FFF;
+  line-height: normal;
+  height: 135px;
+  width: 1920px;
+
+  &_userData {
+    display: flex;
+    width: 430px;
+    height: 117px;
+    margin-top: 18px;
+    background: #00AAFF;
+
+    & img {
+      width: 80px;
+      height: 80px;
+      margin-top: 19px;
+    }
+
+    &-info {
+      padding-top: 19px;
+      padding-left: 19px;
+      display: flex;
+      flex-flow: column;
+
+      &_labelName {
+        width: 175px;
+        height: 29px;
+        font: 24px Roboto;
+        color: #FFF;
+      }
+
+      &_labelProfession {
+        width: 153px;
+        height: 15px;
+        font: 12px Roboto;
+        color: #FFF;
+      }
+
+      &_labelDepartment {
+        margin-top: 19px;
+        width: 167px;
+        height: 17px;
+        font: 14px Roboto;
+        color: #FFF;
+      }
+    }
+  }
+
+  &_total {
+    flex-flow: column nowrap;
+
+    &_header-name {
+      font: 36px Roboto;
+      padding-top: 31px;
+
+      & img {
+        margin-left: 59px;
+        margin-right: 20px;
+        width: 27px;
+        height: 36px;
+      }
+    }
+
+    &_buttons {
+      display: flex;
+      flex-direction: row;
+      height: 143px;
+
+      &_MyProjects {
+        margin-left: 59px;
+        margin-top: 9px;
+        width: 138px;
+        height: 43px;
+        font: 14px Roboto;
+        font-weight: bold;
+        letter-spacing: 0.315px;
+        background: #FFF;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+      }
+
+      &_CommonProjects {
+        margin-left: 10px;
+        margin-top: 9px;
+        width: 153px;
+        height: 43px;
+        font: 14px Roboto;
+        font-weight: bold;
+        letter-spacing: 0.315px;
+        background: #FFF;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+      }
+
+      &_OpenProjects {
+        margin-left: 10px;
+        margin-top: 9px;
+        width: 175px;
+        height: 43px;
+        font: 14px Roboto;
+        font-weight: bold;
+        letter-spacing: 0.315px;
+        background: #FFF;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+      }
+
+      &_CloseProjects {
+        margin-left: 10px;
+        margin-top: 9px;
+        width: 175px;
+        height: 43px;
+        font: 14px Roboto;
+        font-weight: bold;
+        letter-spacing: 0.315px;
+        background: #FFF;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &_backgroundTaskList{
+    & img {
+      width: 1514px;
+      height: 785px;
+      margin-top: 135px;
+      margin-left: -500px;
+    }
+  }
+}

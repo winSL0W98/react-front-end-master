@@ -8,6 +8,7 @@ import projects from '../../static/icons/projects.png';
 import settings from '../../static/icons/settings.png';
 import tasks from '../../static/icons/tasks.png';
 import './style.scss';
+import Rectangle from "../../static/icons/Rectangle.png";
 
 const BlockMenu = ({ activeItem }) => {
   const menuItems = [
@@ -54,11 +55,15 @@ const BlockMenu = ({ activeItem }) => {
   };
 
   return (
+
     <div className="blockMenu">
       <div className="blockMenu-menu">
         <ul className="menu">
           { menuItems.map( ele => <MenuItem key={ele.name} {...ele} />) }
         </ul>
+      </div>
+      <div className="img">
+        <img src={Rectangle} alt="Rectangle"/>
       </div>
     </div>
       // <Menu vertical className="blockMenu-menu">
