@@ -5,18 +5,19 @@ import CreateTask from '../../components/CreateTask/index.jsx';
 import HeaderTask from '../../components/HeaderTask/index.jsx';
 
 
-
-
-
 import './style.scss';
 
+
 class HomePage extends React.Component {
+
   render() {
-    return (
+      return (
         <div className = "Main">
           <HeaderTask/>
           <BlockMenu />
-          <CreateTask />
+          {/*<CreateTask*/}
+
+          {/*/>*/}
           {/*<Task />*/}
         </div>
     )

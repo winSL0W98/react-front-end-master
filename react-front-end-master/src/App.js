@@ -6,6 +6,7 @@ import Login from './layouts/Login/index.jsx';
 import Home from './layouts/Home/index.jsx';
 
 class App extends Component {
+
   render() {
         // const { isAuthenticated } = this.props;
         let isAuthenticated = true;
