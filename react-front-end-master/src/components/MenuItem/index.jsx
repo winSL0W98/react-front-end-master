@@ -10,7 +10,7 @@ const MenuItem = ({ name, title, icon, button }) => (
             <img src={icon} alt={name} />
             {title}
         </a>
-        {button && (<div className="menu--item__button"><PlusButton /></div>)}
+        {button && (<div className="menu--item__button"><PlusButton/></div>)}
     </li>
 );
 

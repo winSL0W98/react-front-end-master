@@ -26,13 +26,13 @@ class BlockMenu extends React.Component {
     };
   }
 
-  _openModal() {
+  openModal = () => {
     this.setState({modalOpen: true});
-  }
+  };
 
-  _closeModal() {
+  closeModal = () => {
     this.setState({modalOpen: false});
-  }
+  };
 
 
 
@@ -89,17 +89,24 @@ class BlockMenu extends React.Component {
           <div className="blockMenu-menu">
             <ul className="menu">
               {menuItems.map(ele => <MenuItem key={ele.name} {...ele} />)}
+              <div className = "buttonTask">
+
+              </div>
             </ul>
+
           </div>
           <div className="img">
             <img src={Rectangle} alt="Rectangle"/>
           </div>
-          <PlusButton onClick={this._openModal.bind(this)}/>
 
+          <div className = "blockMenu--buttonTask">
+
+            <PlusButton  onClick={this.openModal}/>
           {/* Only show Modal when "this.state.modalOpen === true" */}
           {modalOpen
-              ? <CreateTask closeModal={this._closeModal.bind(this)} />
+              ? <CreateTask closeModal={this.closeModal} />
               : ''}
+          </div>
 
 
         </div>

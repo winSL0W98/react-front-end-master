@@ -1,4 +1,5 @@
 .task {
+    top: 10%;
     width: 312px;
     // height: 312px;
     font-family: Roboto;
@@ -6,6 +7,7 @@
     border: #E6EAEE 1px solid;
     border-radius: 4px 4px 0px 0px;
     overflow: hidden;
+
 }
 
 .task--header {
@@ -57,6 +59,7 @@
 }
 
 .task--body {
+    background: #FFF;
     padding: 9px 18px 9px 18px;
     display: flex;
     flex-direction: column;
@@ -107,6 +110,7 @@
 }
 
 .task--footer {
+    background: #FFF;
     padding: 9px 18px;
     font-size: 12px;
 

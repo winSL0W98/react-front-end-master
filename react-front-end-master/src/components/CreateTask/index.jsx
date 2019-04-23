@@ -1,34 +1,171 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
+import {login} from '../../actions/authActions'
 import './style.scss';
 
 
 
 class CreateTask extends React.Component {
-    state = {
-        title: "",
+    constructor(props) {
+        super(props);
+        // this.onSubmit = this.onSubmit.bind(this);
+
+        this.authToken = this.authToken.bind(this);
+        this.state = {
+            username: "Ruslan",
+            password: "admin",
+
+            title: "",
+            text: "",
+            work_evaluation: 0,
+            thread: "",
+            worker: "",
+            date_start: "",
+            date_end: "",
+            type: "",
+            is_private: true,
+            life_cycle: "",
+            direction: 0
+        }
+    }
+    onChangeTitle= event => {
+        this.setState({
+            title: event.target.value
+        });
     };
 
-    handleChange = event => {
-        this.setState({ title: event.target.value });
+    onChangeText= event => {
+        this.setState({
+            Text: event.target.value
+        });
     };
 
-    handleSubmit = event => {
+    onChangeThread = event => {
+        this.setState({
+            thread: event.target.value
+        });
+    };
+    onChangeWorker = event => {
+        this.setState({
+            worker: event.target.value
+        });
+    };
+
+    onChangeDateStart = event =>{
+        this.setState({
+            date_start: event.target.value
+        });
+    };
+
+    onChangeDateEnd = event => {
+        this.setState({
+            date_end: event.target.value
+        });
+    };
+
+    onChangeType = event => {
+        this.setState({
+            type: event.target.value
+        });
+    };
+
+    onChangePrivate = event => {
+        this.setState({
+            is_private: event.target.value
+        });
+    };
+
+    onChangeLifeCycle = event => {
+        this.setState({
+            work_evaluation: event.target.value
+        });
+    };
+
+    onChangeDirection = event => {
+        this.setState({
+            direction: event.target.value
+        });
+    };
+
+    onChangeAnswer = event => {
+        this.setState({
+            answer: event.target.value
+        });
+    };
+
+    onChangeWorkEvaluation = event =>{
+        this.setState({
+            work_evaluation: event.target.value
+        });
+    };
+
+
+
+    authToken = event => {
         event.preventDefault();
-
-        const user = {
-            title: this.state.title
+        const authToken = {
+            username: 'Ruslan',
+            password: 'admin'
         };
 
-        axios.post(`http://localhost:8000/admin/task/task/`,  user )
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
+        const Task = {
+            title: this.state.title,
+            text: this.state.text,
+            work_evaluation: this.state.work_evaluation,
+            thread: "1",
+            worker: "1",
+            date_start: "2019-04-23",
+            date_end: "2019-04-23",
+            type: "ID_TESTING",
+            is_private: true,
+            life_cycle: "ID_REVIEW",
+            direction: 1
+        };
+
+        console.log('username is ${this.state.username} ' +
+            'and password is ${this.state.password}');
+
+        // axios.post('http://localhost:8000/api/auth-token/', authToken).then(res => {
+        //     const token = res.data.access;
+        //     alert("Полученный: " + token);
+        //     localStorage.setItem('JWT1', token);
+        //
+        //     }
+        // );
+
+        console.log('title is ${this.state.title} ' +
+            'and text is ${this.state.text}' +
+            'and work_evaluation is ${this.state.work_evaluation} ' +
+            'and thread is ${this.state.thread}' +
+            'and worker is ${this.state.worker} ' +
+            'and date_start is ${this.state.date_start}' +
+            'and date_end is ${this.state.date_end} ' +
+            'and type is ${this.state.type} ' +
+            'and is_private is ${this.state.is_private} ' +
+            'and life_cycle is ${this.state.life_cycle}' +
+            'and direction is ${this.state.direction} ' +
+            'and answer is ${this.state.answer}');
+        // const token = {
+        //     headers: {'Authorization': 'JWT ' + localStorage.getItem('JWT1')}
+        // };
+
+
+        // axios('http://localhost:8000/api/task/', {
+        //     method: 'POST',
+        //     headers: {'Authorization': 'JWT' + localStorage.getItem('JWT1')}}
+        // }).then(res => console.log(res.data));
+
+        const token = {
+            headers: {'Authorization': "Bearer " + localStorage.getItem('JWT1')}
+        };
+
+        axios.post ('http://localhost:8000/api/task/', Task, token)
+            .then(res => console.log(res.data));
     };
-//const CreateTask = ( isOpen, onCreate) => {
+
+
+
 
     render () {
         const { closeModal } = this.props;
@@ -41,13 +178,13 @@ class CreateTask extends React.Component {
 
 
             <div className="create-task--body">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.authToken}>
                     <div className="create-task--body__title">
                         <label>
                             Название:
                             <input type="text"
-                                   name ="title"
-                                   onChange={this.handleChange}
+                                   value={this.state.title}
+                                   onChange={this.onChangeTitle}
                                    className="create-task--body__title--inputtitle"
                             />
                         </label>
@@ -57,7 +194,10 @@ class CreateTask extends React.Component {
                     <span>
                         <label className="create-task--body__type--LabelType">
                             Тип задачи:
-                            <select className="create-task--body__type--LabelType__InputT1pe">
+                            <select className="create-task--body__type--LabelType__InputT1pe"
+                                    // value={this.state.type}
+                                    // onChange={this.onChangeType}
+                            >
                                  <option value="Тип 1">Тип задачи</option>
                                  <option value="Тип 2 Hovered">Тип 2 Hovered</option>
                                  <option value="Тип 3">Тип 3</option>
@@ -65,7 +205,10 @@ class CreateTask extends React.Component {
                         </label>
                     </span>
                         <span>
-                        <label className="create-task--body__type--LabelProject">
+                        <label className="create-task--body__type--LabelProject"
+                               // value={this.state.type}
+                               // onChange={this.onChangeType}
+                        >
                             Проект:
                             <select className="create-task--body__type--LabelProject__InputText">
                                  <option value="Тип 1"> АИС "СУПД"</option>
@@ -80,7 +223,10 @@ class CreateTask extends React.Component {
                     <span>
                         <label className="create-task--body__executor--labelexecutor">
                             Исполнитель:
-                            <select className="create-task--body__executor--inputexecutor">
+                            <select className="create-task--body__executor--inputexecutor"
+                                    // value={this.state.worker}
+                                    // onChange={this.onChangeWorker}
+                            >
 
                                  <option value="Тип 1">Сидоров И. А.</option>
                                  <option value="Тип 2 Hovered">Тип 2 Hovered</option>
@@ -91,7 +237,12 @@ class CreateTask extends React.Component {
                         <span>
                         <label className="create-task--body__executor--labelhours">
                             Оценка времени в часах:
-                            <input type="number" className="create-task--body__executor--inputhours"/>
+                            <input
+                                type="number"
+                                className="create-task--body__executor--inputhours"
+                                value={this.state.work_evaluation}
+                                onChange={this.onChangeWorkEvaluation}
+                            />
                         </label>
                     </span>
                     </div>
@@ -151,7 +302,10 @@ class CreateTask extends React.Component {
                     <div className="create-task--body__desc">
                         <label>
                             Описание:
-                            <textarea className="create-task--body__desc--TextareaDesk"/>
+                            <textarea className="create-task--body__desc--TextareaDesk"
+                                      value={this.state.text}
+                                      onChange={this.onChangeText}
+                            />
                         </label>
                     </div>
 
@@ -159,6 +313,7 @@ class CreateTask extends React.Component {
                         <button
                             type="submit"
                             className="create-task--body__create--buttonClose"
+
                            >
                             Создать
                         </button>

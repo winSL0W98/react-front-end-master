@@ -12,7 +12,7 @@ export function setCurrentUser(user) {
 
 export function login(data) {
     return dispatch => {
-        return axios.post('http://127.0.0.1:8000/api/auth-token/', data).then(res => {
+        return axios.post('http://localhost:8000/api/auth-token/', data).then(res => {
             const token = res.data.access;
             localStorage.setItem('jwtToken', token);
             setAuthorizationToken(token);
