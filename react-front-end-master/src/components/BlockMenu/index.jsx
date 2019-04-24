@@ -48,18 +48,22 @@ class BlockMenu extends React.Component {
         title: 'Уведомления',
         icon: notifications,
         button: false,
+        func: () => {console.log('privet')},
       },
       {
         name: 'tasks',
         title: 'Список задач',
         icon: tasks,
         button: true,
+        func: () => { this.setState({modalOpen: true})},
+
       },
       {
         name: 'projects',
         title: 'Список проектов',
         icon: projects,
         button: true,
+        func: () => { this.setState({modalOpen: true})},
       },
       {
         name: 'private',
@@ -101,10 +105,9 @@ class BlockMenu extends React.Component {
 
           <div className = "blockMenu--buttonTask">
 
-            <PlusButton  onClick={this.openModal}/>
           {/* Only show Modal when "this.state.modalOpen === true" */}
           {modalOpen
-              ? <CreateTask closeModal={this.closeModal} />
+              ? <CreateTask onClick={this.closeModal} />
               : ''}
           </div>
 

@@ -1,3 +1,14 @@
+.blackout {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: opacity .3s ease;
+}
 .create-task {
     display: flex;
     flex-flow: column nowrap;
@@ -11,6 +22,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 9999;
+
 
     &--body {
         padding-left: 30px;

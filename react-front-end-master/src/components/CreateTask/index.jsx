@@ -9,13 +9,8 @@ import './style.scss';
 class CreateTask extends React.Component {
     constructor(props) {
         super(props);
-        // this.onSubmit = this.onSubmit.bind(this);
-
         this.authToken = this.authToken.bind(this);
         this.state = {
-            username: "Ruslan",
-            password: "admin",
-
             title: "",
             text: "",
             work_evaluation: 0,
@@ -29,74 +24,14 @@ class CreateTask extends React.Component {
             direction: 0
         }
     }
-    onChangeTitle= event => {
-        this.setState({
-            title: event.target.value
-        });
+
+    handleClick = () => {
+        this.props.onClick();
     };
 
-    onChangeText= event => {
+    onChange = event =>{
         this.setState({
-            Text: event.target.value
-        });
-    };
-
-    onChangeThread = event => {
-        this.setState({
-            thread: event.target.value
-        });
-    };
-    onChangeWorker = event => {
-        this.setState({
-            worker: event.target.value
-        });
-    };
-
-    onChangeDateStart = event =>{
-        this.setState({
-            date_start: event.target.value
-        });
-    };
-
-    onChangeDateEnd = event => {
-        this.setState({
-            date_end: event.target.value
-        });
-    };
-
-    onChangeType = event => {
-        this.setState({
-            type: event.target.value
-        });
-    };
-
-    onChangePrivate = event => {
-        this.setState({
-            is_private: event.target.value
-        });
-    };
-
-    onChangeLifeCycle = event => {
-        this.setState({
-            work_evaluation: event.target.value
-        });
-    };
-
-    onChangeDirection = event => {
-        this.setState({
-            direction: event.target.value
-        });
-    };
-
-    onChangeAnswer = event => {
-        this.setState({
-            answer: event.target.value
-        });
-    };
-
-    onChangeWorkEvaluation = event =>{
-        this.setState({
-            work_evaluation: event.target.value
+            [event.target.name]: event.target.value
         });
     };
 
@@ -126,13 +61,13 @@ class CreateTask extends React.Component {
         console.log('username is ${this.state.username} ' +
             'and password is ${this.state.password}');
 
-        // axios.post('http://localhost:8000/api/auth-token/', authToken).then(res => {
-        //     const token = res.data.access;
-        //     alert("Полученный: " + token);
-        //     localStorage.setItem('JWT1', token);
-        //
-        //     }
-        // );
+        axios.post('http://localhost:8000/api/auth-token/', authToken).then(res => {
+            const token = res.data.access;
+            alert("Полученный: " + token);
+            localStorage.setItem('JWT1', token);
+
+            }
+        );
 
         console.log('title is ${this.state.title} ' +
             'and text is ${this.state.text}' +
@@ -146,15 +81,6 @@ class CreateTask extends React.Component {
             'and life_cycle is ${this.state.life_cycle}' +
             'and direction is ${this.state.direction} ' +
             'and answer is ${this.state.answer}');
-        // const token = {
-        //     headers: {'Authorization': 'JWT ' + localStorage.getItem('JWT1')}
-        // };
-
-
-        // axios('http://localhost:8000/api/task/', {
-        //     method: 'POST',
-        //     headers: {'Authorization': 'JWT' + localStorage.getItem('JWT1')}}
-        // }).then(res => console.log(res.data));
 
         const token = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('JWT1')}
@@ -162,15 +88,19 @@ class CreateTask extends React.Component {
 
         axios.post ('http://localhost:8000/api/task/', Task, token)
             .then(res => console.log(res.data));
+
+        this.handleClick();
     };
 
 
 
 
     render () {
-        const { closeModal } = this.props;
+
         return (
-        <div className="create-task">
+
+ <div className="blackout">
+        <div className="create-task" >
             <div className="create-task--header">
                 Создать задачу
             </div>
@@ -183,8 +113,9 @@ class CreateTask extends React.Component {
                         <label>
                             Название:
                             <input type="text"
+                                   name = "title"
                                    value={this.state.title}
-                                   onChange={this.onChangeTitle}
+                                   onChange={this.onChange}
                                    className="create-task--body__title--inputtitle"
                             />
                         </label>
@@ -239,9 +170,10 @@ class CreateTask extends React.Component {
                             Оценка времени в часах:
                             <input
                                 type="number"
+                                name = "work_evaluation"
                                 className="create-task--body__executor--inputhours"
                                 value={this.state.work_evaluation}
-                                onChange={this.onChangeWorkEvaluation}
+                                onChange={this.onChange}
                             />
                         </label>
                     </span>
@@ -304,22 +236,22 @@ class CreateTask extends React.Component {
                             Описание:
                             <textarea className="create-task--body__desc--TextareaDesk"
                                       value={this.state.text}
-                                      onChange={this.onChangeText}
+                                      name = "text"
+                                      onChange={this.onChange}
                             />
                         </label>
                     </div>
 
                     <div className="create-task--body__create">
                         <button
-                            type="submit"
                             className="create-task--body__create--buttonClose"
-
                            >
                             Создать
                         </button>
                     </div>
                 </form>
             </div>
+        </div>
         </div>
         )
     }

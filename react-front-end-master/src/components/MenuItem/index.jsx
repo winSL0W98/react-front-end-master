@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const MenuItem = ({ name, title, icon, button }) => (
+const MenuItem = ({ name, title, icon, button, func }) => (
     <li className="menu--item">
-        <a className="menu--item__link" href="#">
+        <a onClick={func} className="menu--item__link" href="#">
             <img src={icon} alt={name} />
             {title}
         </a>
-        {button && (<div className="menu--item__button"><PlusButton/></div>)}
+        {button && (<div className="menu--item__button"><PlusButton onClick={func}/></div>)}
     </li>
 );
 
