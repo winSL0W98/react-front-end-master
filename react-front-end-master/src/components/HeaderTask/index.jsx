@@ -10,11 +10,13 @@ import Rectangle from '../../static/icons/Rectangle.png';
 
 
 import './style.scss';
+import Task from "../Task";
 
 class HeaderTask extends React.Component {
     render() {
         return (
             <div className="task-header">
+
                 <div className="task-header_userData">
                     <img src={Photo} alt="photo"/>
                     <div className="task-header_userData-info">
@@ -45,11 +47,12 @@ class HeaderTask extends React.Component {
 
                     <div className="task-header_total_buttons">
                         <div>
-                            <button className="task-header_total_buttons_MyProjects">МOИ ПРОЕКТЫ</button>
+                            <button className="task-header_total_buttons_MyProjects">МОИ ПРОЕКТЫ</button>
                         </div>
 
                         <div>
                             <button className="task-header_total_buttons_CommonProjects">ОБЩИЕ ПРОЕКТЫ</button>
+
                         </div>
 
                         <div>

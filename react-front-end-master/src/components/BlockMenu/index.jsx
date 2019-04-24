@@ -11,6 +11,7 @@ import './style.scss';
 import Rectangle from "../../static/icons/Rectangle.png";
 import PlusButton from "../PlusButton/index";
 import CreateTask from "../CreateTask";
+import Task from "../Task";
 
 const handleClick = ()=>{
   alert('alalal');
@@ -22,7 +23,8 @@ class BlockMenu extends React.Component {
     super(props);
 
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      taskOpen: false,
     };
   }
 
@@ -34,6 +36,14 @@ class BlockMenu extends React.Component {
     this.setState({modalOpen: false});
   };
 
+  openTask = () => {
+    this.setState({taskOpen: true});
+  };
+
+  closeTask = () => {
+    this.setState({taskOpen: false});
+  };
+
 
 
 
@@ -41,6 +51,8 @@ class BlockMenu extends React.Component {
 
   render() {
     const { modalOpen } = this.state;
+    const { taskOpen } = this.state;
+
 
     const menuItems = [
       {
@@ -48,15 +60,16 @@ class BlockMenu extends React.Component {
         title: 'Уведомления',
         icon: notifications,
         button: false,
-        func: () => {console.log('privet')},
+        functitle: () => {console.log('privet')},
+        funcname: () => {}
       },
       {
         name: 'tasks',
         title: 'Список задач',
         icon: tasks,
         button: true,
-        func: () => { this.setState({modalOpen: true})},
-
+        functitle: () => {this.openTask()},
+        funcname: () => {this.openModal()},
       },
       {
         name: 'projects',
@@ -109,6 +122,13 @@ class BlockMenu extends React.Component {
           {modalOpen
               ? <CreateTask onClick={this.closeModal} />
               : ''}
+          </div>
+
+          <div className = "blockMenu--titleTask">
+            {taskOpen ?
+                <Task onClick={this.closeTask}/>
+                : ''}
+
           </div>
 
 
