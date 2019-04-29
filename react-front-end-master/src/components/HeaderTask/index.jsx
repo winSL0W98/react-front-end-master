@@ -1,24 +1,12 @@
 import React from 'react';
-import BigTasks from '../../static/icons/BigTasks.png';
-import Photo from '../../static/icons/photo.png';
-import Rectangle from '../../static/icons/Rectangle.png';
-
-
-
-
-
-
-
 import './style.scss';
-import Task from "../Task";
 
 class HeaderTask extends React.Component {
     render() {
         return (
             <div className="task-header">
-
                 <div className="task-header_userData">
-                    <img src={Photo} alt="photo"/>
+                    <img src={require("../../static/icons/photo.png")} alt="photo"/>
                     <div className="task-header_userData-info">
 
                         <label className="task-header_userData-info_labelName">
@@ -33,15 +21,12 @@ class HeaderTask extends React.Component {
                             ОТДЕЛ ВЕБ-РАЗРАБОТКИ
                         </label>
                     </div>
-
-
                 </div>
-
 
 
                 <div className="task-header_total">
                     <div className="task-header_total_header-name">
-                        <img src={BigTasks} alt="BigTasks"/>
+                        <img src={require('../../static/icons/BigTasks.png')} alt="BigTasks"/>
                         СПИСОК ЗАДАЧ
                     </div>
 

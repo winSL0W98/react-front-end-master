@@ -35,8 +35,6 @@ class CreateTask extends React.Component {
         });
     };
 
-
-
     authToken = event => {
         event.preventDefault();
         const authToken = {
@@ -99,7 +97,7 @@ class CreateTask extends React.Component {
 
         return (
 
- <div className="blackout">
+ <div className="blackout" onClick={this.handleClick}>
         <div className="create-task" >
             <div className="create-task--header">
                 Создать задачу

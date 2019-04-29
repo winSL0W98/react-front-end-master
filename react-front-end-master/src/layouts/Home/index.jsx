@@ -6,6 +6,7 @@ import HeaderTask from '../../components/HeaderTask/index.jsx';
 
 
 import './style.scss';
+import LoginForm from "../../components/Login";
 
 
 class HomePage extends React.Component {
@@ -15,6 +16,7 @@ class HomePage extends React.Component {
         <div className = "Main">
           <HeaderTask/>
           <BlockMenu />
+          <LoginForm/>
           {/*<CreateTask*/}
 
           {/*/>*/}
