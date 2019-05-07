@@ -1,16 +1,16 @@
-import { SET_JOB_TITLE_USER } from "../actions/types";
+import { SET_JOB_TITLE_USER } from '../actions/types';
+
 
 const initialState = {
-    id: 0
+    idButtonType: 0
 };
 
-export default function auth(state = initialState, action = {}) {
-    switch (action.type) {
+
+export const reducer = (state = initialState, {type,payload}) => {
+    switch (type) {
         case SET_JOB_TITLE_USER:
-            return {
-                id: action.id,
-            };
+            return{ ...state, idButtonType: payload};
         default:
             return state;
     }
-}
+};

@@ -18,8 +18,8 @@ class HomePage extends React.Component {
       return (
         <div className = "Main">
             {/*<AuthType/>*/}
-          <HeaderTask/>
-          <BlockMenu />
+          {/*<HeaderTask/>*/}
+          {/*<BlockMenu />*/}
           {/*<LoginPage/>*/}
           {/*<CreateTask*/}
 

@@ -5,11 +5,13 @@ import {connect} from 'react-redux';
 import Login from './layouts/Login/index.jsx';
 import Home from './layouts/Home/index.jsx';
 import AuthType from "./components/AuthType";
+import {reducer} from "./reducers/typeReducer";
 
 class App extends Component {
 
   render() {
-        const { isAuthenticated } = this.props;
+        const { isAuthenticated, idButtonType } = this.props;
+
         // let isAuthenticated = true;
 
         return isAuthenticated ?
@@ -30,7 +32,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated : state.authReducer.isAuthenticated
+        isAuthenticated : state.authReducer.isAuthenticated,
+        // idButtonType: state.reducer.idButtonType,
     }
 };
 
