@@ -3,10 +3,13 @@ import BlockMenu from '../../components/BlockMenu/index.jsx';
 import Task from '../../components/Task/index.jsx';
 import CreateTask from '../../components/CreateTask/index.jsx';
 import HeaderTask from '../../components/HeaderTask/index.jsx';
+import AuthType from '../../components/HeaderTask/index.jsx';
+
+import LoginPage from "../Login";
+
 
 
 import './style.scss';
-import LoginForm from "../../components/Login";
 
 
 class HomePage extends React.Component {
@@ -14,9 +17,10 @@ class HomePage extends React.Component {
   render() {
       return (
         <div className = "Main">
+            {/*<AuthType/>*/}
           <HeaderTask/>
           <BlockMenu />
-          <LoginForm/>
+          {/*<LoginPage/>*/}
           {/*<CreateTask*/}
 
           {/*/>*/}

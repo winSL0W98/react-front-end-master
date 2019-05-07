@@ -7,6 +7,8 @@ import TextFieldGroup from '../TextFieldGroup/index.jsx';
 import validateInput from '../../utils/validator';
 
 import './style.scss';
+import HeaderTask from "../../layouts/Home";
+import AuthType from "../AuthType";
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -36,6 +38,7 @@ class LoginForm extends React.Component {
             data: {...this.state.data,
             [event.target.name]:event.target.value }
         });
+
     };
 
     onSubmit = (event) => {
@@ -47,7 +50,7 @@ class LoginForm extends React.Component {
                     this.setState({
                         isLoading: false,
                     });
-                    this.props.history.push('/homepage');
+                    this.props.history.push('/posts');
                 },
                 (err) => {
                     this.setState({
@@ -80,7 +83,7 @@ class LoginForm extends React.Component {
                             value = {data.username}
                             error = {errors.username}
                             onChange = {this.onChange}
-                        />
+                    />
 
                         <TextFieldGroup
                             name = "password"
@@ -92,7 +95,8 @@ class LoginForm extends React.Component {
                             onChange = {this.onChange}
                         />
 
-                        <div className = "Form-group">
+                        <div
+                            className = "Form-group">
                             {errors.login && <span className = "Form-group-error">
                                 {errors.login}
                             </span>}

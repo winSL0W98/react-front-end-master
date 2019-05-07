@@ -37,10 +37,10 @@ class CreateTask extends React.Component {
 
     authToken = event => {
         event.preventDefault();
-        const authToken = {
-            username: 'Ruslan',
-            password: 'admin'
-        };
+        // const authToken = {
+        //     username: 'Ruslan',
+        //     password: 'admin'
+        // };
 
         const Task = {
             title: this.state.title,
@@ -56,32 +56,16 @@ class CreateTask extends React.Component {
             direction: 1
         };
 
-        console.log('username is ${this.state.username} ' +
-            'and password is ${this.state.password}');
-
-        axios.post('http://localhost:8000/api/auth-token/', authToken).then(res => {
-            const token = res.data.access;
-            alert("Полученный: " + token);
-            localStorage.setItem('JWT1', token);
-
-            }
-        );
-
-        console.log('title is ${this.state.title} ' +
-            'and text is ${this.state.text}' +
-            'and work_evaluation is ${this.state.work_evaluation} ' +
-            'and thread is ${this.state.thread}' +
-            'and worker is ${this.state.worker} ' +
-            'and date_start is ${this.state.date_start}' +
-            'and date_end is ${this.state.date_end} ' +
-            'and type is ${this.state.type} ' +
-            'and is_private is ${this.state.is_private} ' +
-            'and life_cycle is ${this.state.life_cycle}' +
-            'and direction is ${this.state.direction} ' +
-            'and answer is ${this.state.answer}');
+        // axios.post('http://localhost:8000/api/auth-token/', authToken).then(res => {
+        //     const token = res.data.access;
+        //     alert("Полученный: " + token);
+        //     localStorage.setItem('JWT1', token);
+        //
+        //     }
+        // );
 
         const token = {
-            headers: {'Authorization': "Bearer " + localStorage.getItem('JWT1')}
+            headers: {'Authorization': "Bearer " + localStorage.getItem('jwtToken')}
         };
 
         axios.post ('http://localhost:8000/api/task/', Task, token)

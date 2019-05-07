@@ -4,18 +4,19 @@ import {connect} from 'react-redux';
 
 import Login from './layouts/Login/index.jsx';
 import Home from './layouts/Home/index.jsx';
+import AuthType from "./components/AuthType";
 
 class App extends Component {
 
   render() {
-        // const { isAuthenticated } = this.props;
-        let isAuthenticated = true;
+        const { isAuthenticated } = this.props;
+        // let isAuthenticated = true;
 
         return isAuthenticated ?
         (
               <Switch>
                   <Route path = "/login" component = {Login} />
-                  <Route path = "/" component = {Home} />
+                  <Route path = "/" component = {AuthType} />
               </Switch>
         )
         : (
