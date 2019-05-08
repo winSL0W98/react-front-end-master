@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 
 import App from './App';
+import AuthType from "./components/AuthType";
 
 import './index.scss';
 

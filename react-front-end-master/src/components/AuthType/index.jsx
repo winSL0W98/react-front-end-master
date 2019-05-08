@@ -2,10 +2,9 @@ import React from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {changeType} from "../../actions/typeActions";
+import {Link} from 'react-router-dom';
 
 import './style.scss';
-
-
 
 class AuthType extends React.Component {
     render() {
@@ -13,32 +12,39 @@ class AuthType extends React.Component {
         return (
             <div className="auth-type">
                 <div className="auth-type__buttons">
-                    <button
-                        className="auth-type__button"
-                        onClick={() => {
-                            changeType(1)
-                        }}
-                    >
-                        Исполнитель
-                    </button>
+                    <Link to="/head">
+                        <button
+                            className="auth-type__button"
+                            // onClick={() => handleClick('rukovod')}
+                            onClick={() => {
+                                changeType(1);
+                            }}
+                        >
+                            Исполнитель
+                        </button>
+                    </Link>
 
-                    <button
-                        className="auth-type__button"
-                        onClick={() => {
-                            changeType(2)
-                        }}
-                    >
-                        Менеджер
-                    </button>
+                    <Link to="/head">
+                        <button
+                            className="auth-type__button"
+                            onClick={() => {
+                                changeType(2)
+                            }}
+                        >
+                            Менеджер
+                        </button>
+                    </Link>
 
-                    <button
-                        className="auth-type__button"
-                        onClick={() => {
-                            changeType(3)
-                        }}
-                    >
-                        Руководитель
-                    </button>
+                    <Link to="/head">
+                        <button
+                            className="auth-type__button"
+                            onClick={() => {
+                                changeType(3)
+                            }}
+                        >
+                            Руководитель
+                        </button>
+                    </Link>
                 </div>
             </div>
         );
@@ -57,5 +63,5 @@ const mapActionsToProps = (dispatch) => {
     }
 };
 
-export default connect(setJobTitleUser,mapActionsToProps )(AuthType);
+export default connect(setJobTitleUser, mapActionsToProps)(AuthType);
 
